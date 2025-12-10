@@ -4,7 +4,7 @@ import numpy as np
 
 # Lazy-load the model so importing this module doesn't require joblib present
 _HERE = os.path.dirname(__file__)
-_MODEL_PATH = os.path.join(_HERE, "model.joblib")
+_MODEL_PATH = os.path.join(_HERE, "model5.joblib")
 _model = None
 
 def _get_model():
@@ -46,7 +46,6 @@ def predict_decision(features: dict) -> dict:
     proba_down = float(proba[0])
     proba_up = float(proba[1])
 
-    # Политика принятия решения
     if proba_up > 0.6:
         action = "BUY"
     elif proba_up < 0.4:
